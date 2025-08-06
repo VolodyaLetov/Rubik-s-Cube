@@ -26,11 +26,29 @@ controls.update(); // initialize controls
 
 // Create a 3x3x3 grid of cubes (Rubik’s cube pieces)
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshNormalMaterial(); // colors by face normals
 const cubelets = [];
 for (let y = 1; y >= -1; y--) {
   for (let x = -1; x <= 1; x++) {
     for (let z = -1; z <= 1; z++) {
+      const material = [];
+      material.push(
+        new THREE.MeshBasicMaterial({ color: x === 1 ? 0xff0000 : 0x000000 })
+      );
+      material.push(
+        new THREE.MeshBasicMaterial({ color: x === -1 ? 0xffa500 : 0x000000 })
+      );
+      material.push(
+        new THREE.MeshBasicMaterial({ color: y === 1 ? 0xffff00 : 0x000000 })
+      );
+      material.push(
+        new THREE.MeshBasicMaterial({ color: y === -1 ? 0xffffff : 0x000000 })
+      );
+      material.push(
+        new THREE.MeshBasicMaterial({ color: z === 1 ? 0x0000ff : 0x000000 })
+      );
+      material.push(
+        new THREE.MeshBasicMaterial({ color: z === -1 ? 0x00ff00 : 0x000000 })
+      );
       const cubelet = new THREE.Mesh(boxGeometry, material);
       cubelet.position.set(x, y, z);
       // Store original position in userData (optional)
