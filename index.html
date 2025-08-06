@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rubik's Cube</title>
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        background-color: black;
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <!-- Import map to resolve bare module imports to CDN URLs -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
       }
-    </style>
+    </script>
   </head>
   <body>
+    <!-- Module script that imports Three.js and OrbitControls via CDN -->
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
